@@ -1,0 +1,192 @@
+#exporttool {
+    
+    // HEADER
+    
+    .back-to-bga-header {
+        background: $blue-active;
+        padding: 16px ;
+        
+        p {
+            color: $white;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .back-to-bga {
+            color: $white;
+            display: relative;
+            padding-left: 18px;
+            span {
+                background: url('../assets/Icon-chevron-left-white.svg') no-repeat;
+                height: 20px;
+                width: 10px;
+                background-position: left 4px;
+                display: block;
+                position: absolute;
+            }
+        }
+    }
+    .beta-badge {
+        background-color: #fff;
+        width: 80px;
+        height: 40px;
+        color: $blue-primary;
+        margin-top: 12px;
+        border-radius: 25px;
+        font-size: .9375rem;
+        font-weight: 700;
+        padding: 8px 20px 8px 20px;
+    }
+    .breadcrumb-location.inactive {
+        font-weight: 400;
+    }
+    
+    
+    // GENERAL
+    
+    p {
+        font-size: 16px;
+    }
+    .no-padding {
+        padding: 0;
+    }
+    .col-override {
+        padding-left: 0;
+        padding-right: 0;
+        max-width: 100% !important;
+    }
+    .padding-bottom-16 {
+        padding-bottom: 16px;
+    }
+    .disclaimer {
+        p, h5 {
+            font-size: 0.75rem;
+        }  
+    }
+    .inline-pathway-link {
+        text-transform: uppercase;
+        text-decoration: none;
+        box-shadow: none;
+        color: #333;
+        font-size: 12px;
+        line-height: 24px;
+        font-family: "Open Sans",sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        border-bottom: none !important;
+    }
+    .hs-code {
+        padding-bottom: 16px;
+    }
+    .theme-button-primary {
+        background: #4569A0 0% 0% no-repeat padding-box;
+        border: 2px solid #254F90;
+        color: #fff;
+        font-family: "Open Sans",sans-serif;
+        font-weight: 600;
+        font-style: normal;
+        height: 48px !important;
+        padding: 16px 32px;
+        display: inline-block;
+    }
+    .standardcta {
+        h2 {
+            padding-top: 0 !important;
+        }
+    }
+    
+    
+    // EXPORT ACCORDION
+    .required-tag {
+        font-weight: 600;
+        font-size: 16px;
+        letter-spacing: 0px;
+        color: white;
+        width: 54px;
+        display: inline-block;
+        margin-top: 3px;
+        line-height: 22px;
+        background: $blue-primary-mid;
+        float: left;
+        height: 30px;
+        border-radius: 15px;
+        opacity: 1;
+        text-align: center;
+        margin-right: 16px;
+        line-height: 1.8rem;
+    }
+
+    // EXPORT TABS
+    .nav-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0;
+        margin: 16px 0 24px 0;
+        list-style: none;
+        border-bottom-width: 0px;
+
+        .nav-item {
+            flex: 1 1 auto;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            border: none;
+            
+            &::before {
+                display: none;
+            }
+            .nav-link {
+                border: none;
+                border-bottom: 4px solid #dee2e6;
+                display: block;
+                color: $black-light;
+    
+                &:hover {
+                    background-color: #eee !important;
+                    box-shadow: none !important;
+                }
+
+                &.active {
+                    color: #294F92 !important;
+                    border-bottom-color: #254f90 !important;
+                }
+            }
+        }
+    }
+    
+    // BLUE NOTIFICATION
+    .notification-wrapper {
+        padding: 24px;
+        background: #EFF4FB;
+        border-top: 4px solid #B3C2D8;
+        margin-bottom: 32px;
+        position: relative;
+        
+        .notification-icon {
+            background: url(../assets/Icon-alert-information.svg) no-repeat;
+            
+            height: 40px;
+            min-width: 40px;
+            width: 40px;
+            position:absolute;
+        }
+        .notification-content {
+            padding: 0 16px 0 54px;
+            font-size: 1rem;
+            letter-spacing: .0125rem;
+            line-height: 1.78;
+            text-align: left;
+            
+            p {
+                color: $blue-primary;
+                padding-bottom: 16px;
+            }
+        }
+    }
+    
+    // Hide tab content
+    #importing-requirements-section, #tariff-section {
+        display: none;
+    }
+    
+}// end #exporttool
