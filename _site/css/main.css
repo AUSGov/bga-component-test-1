@@ -3223,10 +3223,15 @@ label { display: block; padding: 5px 0; font-weight: bold; }
 /* ANCHOR MENU */
 .anchor-menu .sticky-container ul li .active-sticky { font-weight: 600 !important; color: #254f90; font-size: 14px; line-height: 20px; text-decoration: none; padding-left: 16px; border: none; border-left: #b3c2d8 solid 4px; }
 
+/* HIDE BREADCRUMBS ON MOBILE */
+@media (max-width: 767px) { .breadcrumbs-wrapper { display: none; } }
+
 /* MODAL */
 .modal-wrapper { display: none; }
 
 .modal-wrapper.active { display: block; position: fixed; width: 500px; padding: 64px 32px 32px 32px; top: 30%; left: calc(50% - 250px); background: #ffffff; z-index: 7000; box-shadow: 0 0.125rem 0.375rem 0 rgba(0, 0, 0, 0.5); border-top: solid #4569A0 4px; }
+
+@media (max-width: 676px) { .modal-wrapper.active { width: 90%; left: 5%; top: 20%; } }
 
 .modal-wrapper.active .modal-close { text-indent: -9999px; height: 24px; width: 24px; background: url(../assets/Icon-cross-blue.svg) no-repeat; position: absolute; right: 32px; top: 32px; cursor: pointer; }
 

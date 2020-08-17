@@ -10,6 +10,13 @@
     border-left: #b3c2d8 solid 4px;
 }
 
+/* HIDE BREADCRUMBS ON MOBILE */
+@media(max-width: 767px) {
+    .breadcrumbs-wrapper {
+        display: none;
+    }
+}
+
 /* MODAL */
 .modal-wrapper {
     display: none;
@@ -25,6 +32,12 @@
     z-index: 7000;
     box-shadow: 0 .125rem .375rem 0 rgba(0, 0, 0, .5); 
     border-top: solid $blue-primary-mid 4px;
+    
+    @media(max-width: 676px) {
+        width: 90%;
+        left: 5%;
+        top: 20%;
+    }
     
     .modal-close {
         text-indent: -9999px;
