@@ -1,4 +1,4 @@
-# BGA Guide navigation
+# BGA Component testing
 
-[Base Business.gov.au Prototype](https://ausgov.github.io/bga-base-prototype/index.html)
+[Prototype for BGA Component test - round 1](https://ausgov.github.io/bga-component-test-1/)
     

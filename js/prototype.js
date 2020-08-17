@@ -11,52 +11,10 @@ function changePageExternal(url) {
 $(document).ready(function () {
     
     // Main navigation functionality
-    $('.navbar-nav .nav-item.dropdown').on('click', function(){
+    /*$('.navbar-nav .nav-item.dropdown').on('click', function(){
         $(this).find('.navigation-first-level-menu').toggleClass('show');
-    });
+    });*/
 
-    $('body').click(function(e){
-        
-        console.log(e.target);
-        var top_menu_link = $('.navigation-main-menu > .nav-item').has(e.target).length > 0,
-            dropdown_menu = $('dropdown-menu').has(e.target).length > 0;
-        
-        if(!top_menu_link) {
-            console.log("I'm not the menu link");
-            
-            $('.dropdown-menu').each(function(){
-                $(this).removeClass('show');
-            });
-        } else {
-            console.log("I'm a top link");
-        }
-    });
-    
-    // Main nav - top level links
-    $('#navbarDropdownMenuLink_0').on('click', function(e){
-        e.preventDefault();
-    });
-    $('#navbarDropdownMenuLink_1').on('click', function(e){
-        e.preventDefault();
-    });
-    $('#navbarDropdownMenuLink_2').on('click', function(e){
-        e.preventDefault();
-        window.location.pathname = "/bga-base-prototype/Grants-and-programs.html";
-    });
-    $('#navbarDropdownMenuLink_3').on('click', function(e){
-        e.preventDefault();
-        window.location.pathname = "/bga-base-prototype/Expertise-and-advice.html";
-    });
-    $('#navbarDropdownMenuLink_4').on('click', function(e){
-        e.preventDefault();
-        window.location.pathname = "/bga-base-prototype/Events-and-training.html";
-    });
-    $('#navbarDropdownMenuLink_5').on('click', function(e){
-        e.preventDefault();
-        window.location.pathname = "/bga-base-prototype/News.html";
-    }); 
-
-    
     
     // Prevent click empty 'a' tag from causing scrolling
     $('a').on('click', function(e){
@@ -210,12 +168,31 @@ $(document).ready(function () {
     });
     
     // Search not working modal
-     $(".btn-search").on("click", function(){
+     $(".btn-search").on("click", function(e){
+        var location = window.location;
+        e.preventDefault();
+        window.location = location;
         $(".modal-wrapper").addClass("active");
         $(".modal-background").addClass("active");
     });
     
+    // Deactivate Breadcrumbs
+    $('.breadcrumb-link').on('click', function(e){
+        e.preventDefault();
+        $(".modal-wrapper").addClass("active");
+        $(".modal-background").addClass("active");
+    }); 
     
+    // Main nav - top level links
+    $('#navigation-bar .nav-item').on('click', function(e){
+        e.preventDefault();
+        $(".modal-wrapper").addClass("active");
+        $(".modal-background").addClass("active");
+    });  
+    $('.navbar-toggler').on('click', function(e){
+        $(".modal-wrapper").addClass("active");
+        $(".modal-background").addClass("active");
+    });
     
     // EXPORT TOOL TABS & NAV TILES FUNCTIONALITY
     $('.nav-link').on('click', function(e){
@@ -237,6 +214,71 @@ $(document).ready(function () {
         $("html, body").animate({ scrollTop: 0 }, "slow");
         return false;
     });
+    
+    
+    /*------------------- Update URLS for measuring unmod task success -------------------*/
+    
+    // Task 1 - measure click on inline-pathway
+    /*$("#task1 .anchor-card").on('click', function(){
+           
+    });*/
+    
+    // Task 2 - measure clicks on side-menu
+    var task2_counter = 1;
+    $("#task2 .sticky-item li").on('click', function(){
+        window.location.hash = "+sidemenu" + task2_counter;
+        task2_counter++;
+    });
+
+    
+    //Task 3 - measure clicks on tabs, readmore and accordion links   
+    var create_fragment = function(tab_number, readmore_number, accordion_number){
+        var fragment = "";
+        if (tab_number > 0)  {
+            fragment = fragment + "+tab" + tab_number;
+        }
+        if (readmore_number > 0) {
+            fragment = fragment + "+readmore" + readmore_number;
+        }
+        if (accordion_number > 0)  {
+            fragment = fragment + "+accordionlink" + accordion_number;
+        }
+        
+        window.location.hash = fragment;
+    };
+    
+    var tabs_counter = 0,
+        readmore_counter = 0,
+        accordionlink_counter = 0;
+        
+    $('#task3 .nav-tabs .nav-item').on('click', function(){
+        tabs_counter++;
+        create_fragment(tabs_counter, readmore_counter, accordionlink_counter);
+    });
+    $('#task3 .accordion-link').on('click', function(){
+        accordionlink_counter++;
+        create_fragment(tabs_counter, readmore_counter, accordionlink_counter);
+    });
+    $('#task3 .anchor-card.export-nav-tile').on('click', function(){
+        readmore_counter++;
+        create_fragment(tabs_counter, readmore_counter, accordionlink_counter);
+    });
+    
+    //Task 4 - measure open of accordion items
+    var task4_counter = 0,
+        correct_answer_counter = 0;
+    $("#task4 .accordion-item").on('click', function(){
+        task4_counter++;
+        if ($(this).hasClass('correct_answer')) {
+            correct_answer_counter++;
+        }
+        if (correct_answer_counter > 0) {
+            window.location.hash = "+accordion" + task4_counter + 'correct' + correct_answer_counter;
+        } else {
+             window.location.hash = "+accordion" + task4_counter;
+        } 
+    });
+
     
     
 }); // END doc ready
